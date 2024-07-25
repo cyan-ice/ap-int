@@ -10,11 +10,11 @@ Execute `python3 -m pip install ap_int`.
 
 ## Contributing
 
-### Testing
+### Testing (Windows)
 
 1. Clone the Github repo.
 2. Make sure you're at the source directory.
-3. Execute `python3 test.py`.
+3. Execute `py test.py`.
 
 ## Documentation
 
