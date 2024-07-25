@@ -12,14 +12,14 @@ class test:
     n = 0
     tests = []
 
-    def __init__(self, name, times=1, timeout=1):
+    def __init__(self, times=1, timeout=1):
         test.n += 1
-        self._id, self.name, self.times, self.timeout = test.n, name, times, timeout
+        self._id, self.times, self.timeout = test.n, times, timeout
 
     def __call__(self, f):
         @wraps(f)
         async def wrapper():
-            print(end=f'Test #{self._id}: {self.name}... ')
+            print(end=f'Test #{self._id}: {f.__name__}... ')
             try:
                 for _ in range(self.times):
                     if self.timeout is None:
@@ -51,16 +51,16 @@ def randbits(bits=1024):
 def op_test(op, a, ia):
     s, n = op(*a), len(a)
     for i in range(1, 1 << n):
-        assert s == op(*(a[j] if i >> j & 1 else ia[j] for j in range(n)))
+        assert s == op(*(ia[j] if i >> j & 1 else a[j] for j in range(n)))
     
-@test('Initialization')
+@test()
 async def init():
     a = randbits()
     Integer()
     Integer(a)
     Integer(str(a))
 
-@test('Arithmetics', 3)
+@test(3)
 async def arithmetics():
     a, b = (randbits() for _ in range(3)), randbits(10)
     ia, ib = tuple(map(Integer, a)), Integer(b)
@@ -77,7 +77,7 @@ async def arithmetics():
     for m, im in zip(permutations(a, 3), permutations(ia, 3)):
         op_test(pow, m, im)
 
-@test('Bitwise', 3)
+@test(3)
 async def bitwise():
     a = (randbits(), randbits())
     ia = tuple(map(Integer, a))

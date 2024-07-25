@@ -22,6 +22,25 @@ log2_10 = log2(10)
 @dataclass(frozen=True)
 @total_ordering
 class Integer:
+    '''Arbitrary-Precision integer class.
+
+Usage:
+>>> a, b = Integer(114514), Integer('1919810')
+>>> a * b
+Integer(219845122340)
+>>> b // a
+Integer(16)
+>>> a - b
+Integer(-1805296)
+>>> a ** b > b ** a
+True
+>>> a >= b
+False
+>>> a ^ b
+Integer(1897488)
+>>> pow(a, b, 10)
+Integer(6)'''
+
     content: Decimal
 
     def __init__(self, content=0):
