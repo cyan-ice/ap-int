@@ -6,3 +6,4 @@ src/ap_int.egg-info/PKG-INFO
 src/ap_int.egg-info/SOURCES.txt
 src/ap_int.egg-info/dependency_links.txt
 src/ap_int.egg-info/top_level.txt
+tests/test.py
