@@ -16,9 +16,6 @@ __version__ = '0.0.1'
 class Integer: ...
 
 is_integer = lambda obj: isinstance(obj, Integer)
-def check_type(value, t=int | Integer):
-    if not isinstance(value, t):
-        raise TypeError(f'{type(value)} is not one of int, str or Integer')
 integer_ctx = Context(MAX_PREC, None, MIN_EMIN, MAX_EMAX)
 log2_10 = log2(10)
 
@@ -28,9 +25,6 @@ class Integer:
     content: Decimal
 
     def __init__(self, content=0):
-        check_type(content, int | str | Integer)
-        if isinstance(content, str) and not content.isdigit():
-            raise ValueError(f'{content} is not a valid integer')
         with localcontext(integer_ctx):
             object.__setattr__(self, 'content', content.content if is_integer(content) else Decimal(content))
     
@@ -49,19 +43,14 @@ class Integer:
         return f'Integer({str(self)})'
     
     def __eq__(self, value):
-        check_type(value)
         with localcontext(integer_ctx):
             return self.content == (value.content if is_integer(value) else value)
     
     def __lt__(self, other):
-        check_type(other)
         with localcontext(integer_ctx):
             return self.content < (other.content if is_integer(other) else other)
     
     def __pow__(self, exponent, modulus=None):
-        check_type(exponent)
-        if modulus is not None:
-            check_type(modulus)
         with localcontext(integer_ctx):
             return Integer(pow(self.content, exponent.content if is_integer(exponent) else exponent, modulus.content if is_integer(modulus) else modulus))
     
@@ -69,7 +58,6 @@ class Integer:
         return pow(base, self, modulus) if is_integer(base) else Integer(pow(base, int(self)) if modulus is None else pow(base, int(self), modulus))
 
     def __mul__(self, other):
-        check_type(other)
         with localcontext(integer_ctx):
             return Integer(self.content * (other.content if is_integer(other) else other))
     
@@ -77,7 +65,6 @@ class Integer:
         return self * other
         
     def __floordiv__(self, other):
-        check_type(other)
         with localcontext(integer_ctx):
             return Integer(self.content // (other.content if is_integer(other) else other))
     
@@ -85,7 +72,6 @@ class Integer:
         return other // self if is_integer(other) else Integer(other // int(self))
     
     def __lshift__(self, other):
-        check_type(other)
         if other < 0:
             return self >> -other
         return self * pow(Integer(2), other)
@@ -94,7 +80,6 @@ class Integer:
         return other << self if is_integer(other) else Integer(other << int(self))
     
     def __rshift__(self, other):
-        check_type(other)
         if other < 0:
             return self << -other
         with localcontext(integer_ctx):
@@ -117,7 +102,6 @@ class Integer:
             return Integer(abs(self.content))
     
     def __add__(self, other):
-        check_type(other)
         with localcontext(integer_ctx):
             return Integer(self.content + (other.content if is_integer(other) else other))
     
@@ -125,7 +109,6 @@ class Integer:
         return self + other
     
     def __sub__(self, other):
-        check_type(other)
         with localcontext(integer_ctx):
             return Integer(self.content - (other.content if is_integer(other) else other))
     
