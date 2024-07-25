@@ -1,4 +1,6 @@
 # ap_int
+![GitHub Release](https://img.shields.io/github/v/release/cyan-ice/ap-int)
+![GitHub License](https://img.shields.io/github/license/cyan-ice/ap-int)
 
 Python package for Arbitrary-Precision arithmetic.
 
