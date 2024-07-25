@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ap-int
+Version: 0.0.1
+Summary: Arbitrary-Precision Python Integers
+Author-email: Jingyang Wang <wangjy2010@126.com>
+Project-URL: Homepage, https://github.com/cyan-ice/ap-int
+Project-URL: Issues, https://github.com/cyan-ice/ap-int/issues
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: COPYING
+
+# ap-int
+
+Python package for Arbitrary-Precision arithmetic
