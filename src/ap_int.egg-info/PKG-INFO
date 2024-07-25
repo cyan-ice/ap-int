@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: ap-int
+Name: ap_int
 Version: 0.0.1
 Summary: Arbitrary-Precision Python Integers
 Author-email: Jingyang Wang <wangjy2010@126.com>
@@ -12,6 +12,6 @@ Requires-Python: >=3.12
 Description-Content-Type: text/markdown
 License-File: COPYING
 
-# ap-int
+# ap_int
 
 Python package for Arbitrary-Precision arithmetic

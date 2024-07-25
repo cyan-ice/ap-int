@@ -1,7 +1,7 @@
 COPYING
 README.md
 pyproject.toml
-src/ap-int/__init__.py
+src/ap_int/__init__.py
 src/ap_int.egg-info/PKG-INFO
 src/ap_int.egg-info/SOURCES.txt
 src/ap_int.egg-info/dependency_links.txt

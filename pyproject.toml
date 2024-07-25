@@ -3,7 +3,7 @@ requires = ["setuptools>=71.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ap-int"
+name = "ap_int"
 version = "0.0.1"
 authors = [
   { name="Jingyang Wang", email="wangjy2010@126.com" },
