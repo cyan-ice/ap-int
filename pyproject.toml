@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=71.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ap-int"
+version = "0.0.1"
+authors = [
+  { name="Jingyang Wang", email="wangjy2010@126.com" },
+]
+description = "Arbitrary-Precision Python Integers"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/cyan-ice/ap-int"
+Issues = "https://github.com/cyan-ice/ap-int/issues"
